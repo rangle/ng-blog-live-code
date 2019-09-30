@@ -4,7 +4,12 @@ import { Component } from '@angular/core';
   selector: 'app-blog-roll',
   template: `
     <ul>
-      <li *ngFor="let article of articles">{{ article }}</li>
+      <li
+        (click)="onClick(article)"
+        *ngFor="let article of articles"
+      >
+        {{ article }}
+      </li>
     </ul>
   `,
 })
@@ -16,4 +21,8 @@ export class BlogRollComponent {
     'Components what?',
     'Front End JS in a Nutshell',
   ];
+
+  onClick(article: string) {
+    alert(article);
+  }
 }
