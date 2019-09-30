@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-blog-live-code';
+  title: string;
+  constructor() {
+    this.title = 'Angular Training!';
+  }
 }
