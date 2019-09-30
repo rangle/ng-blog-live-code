@@ -4,13 +4,18 @@ import { Component } from '@angular/core';
   selector: 'app-blog-roll',
   template: `
     <ul>
-      <li (click)="onClick(article)" *ngFor="let article of articles">
-        <app-article-item [article]="article"></app-article-item>
+      <li *ngFor="let article of articles">
+        <app-article-item (onClick)="sayHello(article)"  [article]="article"></app-article-item>
       </li>
     </ul>
   `,
 })
 export class BlogRollComponent {
+
+  sayHello() {
+    alert('aa');
+  }
+
   articles = [
     {
       author: 'Michael B.',
