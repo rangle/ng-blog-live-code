@@ -1,5 +1,9 @@
 <h2>{{ title }}</h2>
 <div class="app-container">
-  <app-article class="app-article"></app-article>
-  <app-blog-roll class="app-blog-roll"></app-blog-roll>
+  <app-article class="app-article" [article]="selectedArticle"></app-article>
+  <app-blog-roll
+    (selectedArticle)="displaySelectedArticle($event)"
+    [articles]="articles"
+    class="app-blog-roll"
+  ></app-blog-roll>
 </div>
