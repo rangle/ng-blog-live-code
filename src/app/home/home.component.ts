@@ -46,7 +46,11 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.articles.length) {
+      this.selectedArticle = this.articles[0];
+    }
+  }
 
   displaySelectedArticle(article: any) {
     this.selectedArticle = article;
