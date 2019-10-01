@@ -1,0 +1,8 @@
+<div class="app-container">
+  <app-article class="app-article" [article]="selectedArticle"></app-article>
+  <app-blog-roll
+    (selectedArticle)="displaySelectedArticle($event)"
+    [articles]="articles"
+    class="app-blog-roll"
+  ></app-blog-roll>
+</div>

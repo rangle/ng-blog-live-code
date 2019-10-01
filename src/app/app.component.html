@@ -1,9 +1,6 @@
-<h2>{{ title }}</h2>
-<div class="app-container">
-  <app-article class="app-article" [article]="selectedArticle"></app-article>
-  <app-blog-roll
-    (selectedArticle)="displaySelectedArticle($event)"
-    [articles]="articles"
-    class="app-blog-roll"
-  ></app-blog-roll>
+<div class="app-nav">
+  <h2 class="app-title">{{ title }}</h2>
+  <a class="app-link" routerLink="/">Home</a>
+  <a class="app-link" routerLink="/new-article">New Article</a>
 </div>
+<router-outlet></router-outlet>

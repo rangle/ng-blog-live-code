@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
 import { BlogRollComponent } from './blog-roll/blog-roll.component';
 import { ArticleItemComponent } from './article-item/article-item.component';
+import { HomeComponent } from './home/home.component';
+import { NewArticleComponent } from './new-article/new-article.component';
 
 @NgModule({
   declarations: [
@@ -13,12 +15,11 @@ import { ArticleItemComponent } from './article-item/article-item.component';
     ArticleComponent,
     BlogRollComponent,
     ArticleItemComponent,
+    HomeComponent,
+    NewArticleComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

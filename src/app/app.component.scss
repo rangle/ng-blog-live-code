@@ -1,17 +1,18 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
 h2 {
   font-family: sans-serif;
 }
 
-.app-container {
+.app-nav {
   display: flex;
-  flex-direction: row;
-  font-size: 70%;
+  background-color: aqua;
 }
 
-.app-article {
-  width: 70%;
-}
-
-.app-blog-roll {
-  width: 30%;
+.app-link {
+  line-height: 65px;
+  margin-left: 15px;
 }
