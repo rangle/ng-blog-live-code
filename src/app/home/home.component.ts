@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FetchService } from '../fetch.service';
+import { FetchService, DataArticle } from '../fetch.service';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +12,14 @@ export class HomeComponent implements OnInit {
   constructor(private fetchService: FetchService) {}
 
   ngOnInit() {
-    if (this.fetchService.articles.length) {
-      this.selectedArticle = this.fetchService.articles[0];
-    }
+    this.fetchService.articles
+      .subscribe((articles: DataArticle[]) => {
+        if (articles.length) {
+         this.selectedArticle = articles[0];
+        }
+      }, (error: Error) => {
+        console.log('sad path', error);
+      });
   }
 
   displaySelectedArticle(article: any) {

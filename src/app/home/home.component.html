@@ -2,7 +2,7 @@
   <app-article class="app-article" [article]="selectedArticle"></app-article>
   <app-blog-roll
     (selectedArticle)="displaySelectedArticle($event)"
-    [articles]="fetchService.articles"
+    [articles]="fetchService.articles | async"
     class="app-blog-roll"
   ></app-blog-roll>
 </div>
