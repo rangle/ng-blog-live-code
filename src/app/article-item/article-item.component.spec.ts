@@ -8,14 +8,14 @@ describe('ArticleItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArticleItemComponent ]
-    })
-    .compileComponents();
+      declarations: [ArticleItemComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ArticleItemComponent);
     component = fixture.componentInstance;
+    component.article = { title: 'Article Title', author: 'Article Author' };
     fixture.detectChanges();
   });
 
