@@ -2,22 +2,14 @@
 
 <form [formGroup]="articleFormGroup" (submit)="saveArticle()">
   <input formControlName="title" placeholder="title" />
-  <span *ngIf="articleFormGroup.controls.title.valid === false">
-    <p class="error" *ngIf="articleFormGroup.controls.title.errors.required">Article Title is required.</p>
-    <p class="error" *ngIf="articleFormGroup.controls.title.errors.minlength">Min Length should be 10 chars.</p>
-  </span>
-  <input formControlName="author" placeholder="author" /><br /><br />
-
+  <app-control-error [formErrors]="articleFormGroup.controls.title.errors"></app-control-error>
+  <input formControlName="author" placeholder="author" />
+  <br /><br />
   <input formControlName="date" placeholder="date" />
-  <span *ngIf="articleFormGroup.controls.date.valid === false">
-    <p class="error" *ngIf="articleFormGroup.controls.date.errors.required">Date is required.</p>
-  </span>
+  <app-control-error [formErrors]="articleFormGroup.controls.date.errors"></app-control-error>
 
   <textarea formControlName="body" placeholder="body"></textarea>
-  <span *ngIf="articleFormGroup.controls.body.valid === false">
-    <p class="error" *ngIf="articleFormGroup.controls.body.errors.required">Body is required.</p>
-    <p class="error" *ngIf="articleFormGroup.controls.body.errors.minlength">Min Length should be 10 chars.</p>
-  </span>
+  <app-control-error [formErrors]="articleFormGroup.controls.body.errors"></app-control-error>
 
   <button type="submit" [disabled]="!articleFormGroup.valid">Save Article</button>
 </form>

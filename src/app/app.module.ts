@@ -10,6 +10,7 @@ import { BlogRollComponent } from './blog-roll/blog-roll.component';
 import { ArticleItemComponent } from './article-item/article-item.component';
 import { HomeComponent } from './home/home.component';
 import { NewArticleComponent } from './new-article/new-article.component';
+import { ControlErrorComponent } from './control-error/control-error.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NewArticleComponent } from './new-article/new-article.component';
     ArticleItemComponent,
     HomeComponent,
     NewArticleComponent,
+    ControlErrorComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [],
