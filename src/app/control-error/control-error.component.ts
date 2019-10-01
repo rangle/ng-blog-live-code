@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ControlErrorComponent implements OnInit {
   @Input() formErrors: any;
+  @Input() fieldName: string;
   constructor() {}
 
   ngOnInit() {}

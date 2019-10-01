@@ -2,14 +2,14 @@
 
 <form [formGroup]="articleFormGroup" (submit)="saveArticle()">
   <input formControlName="title" placeholder="title" />
-  <app-control-error [formErrors]="articleFormGroup.controls.title.errors"></app-control-error>
+  <app-control-error fieldName="Title" [formErrors]="articleFormGroup.controls.title.errors"></app-control-error>
   <input formControlName="author" placeholder="author" />
   <br /><br />
   <input formControlName="date" placeholder="date" />
-  <app-control-error [formErrors]="articleFormGroup.controls.date.errors"></app-control-error>
+  <app-control-error fieldName="Date" [formErrors]="articleFormGroup.controls.date.errors"></app-control-error>
 
   <textarea formControlName="body" placeholder="body"></textarea>
-  <app-control-error [formErrors]="articleFormGroup.controls.body.errors"></app-control-error>
+  <app-control-error fieldName="Body" [formErrors]="articleFormGroup.controls.body.errors"></app-control-error>
 
   <button type="submit" [disabled]="!articleFormGroup.valid">Save Article</button>
 </form>
