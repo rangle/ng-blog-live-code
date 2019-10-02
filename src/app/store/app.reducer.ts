@@ -3,17 +3,19 @@ import * as AppActions from './app.actions';
 
 export function appReducer(
   state: AppState = {
-    title: '',
     articles: [],
+    selectedArticle: undefined,
+    didError: false,
   },
   action: AppActions.All,
 ) {
   console.log(action);
   switch (action.type) {
     case AppActions.GET_ARTICLES_SUCCESS:
-      const s = { ...state, articles: action.payload };
-      console.log(s);
-      return s;
+      return { ...state, articles: action.payload, selectedArticle: action.payload[0] };
+
+    case AppActions.SELECT_ARTICLE:
+      return { ...state, selectedArticle: action.payload };
 
     default:
       return state;

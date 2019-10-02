@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FetchService } from './../fetch.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-article',
@@ -9,7 +11,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 export class NewArticleComponent implements OnInit {
   articleFormGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private fetchService: FetchService, private router: Router) {}
 
   ngOnInit() {
     // this.articleFormGroup = new FormGroup({
@@ -28,5 +30,15 @@ export class NewArticleComponent implements OnInit {
 
   saveArticle() {
     console.log(this.articleFormGroup);
+    const article = {
+      title: this.articleFormGroup.controls.title.value,
+      author: this.articleFormGroup.controls.author.value,
+      date: [2019, 10, 2],
+      body: this.articleFormGroup.controls.body.value,
+      isPublished: true,
+    };
+    this.fetchService.articles.push(article);
+    this.fetchService.selectedArticle = article;
+    this.router.navigateByUrl('');
   }
 }

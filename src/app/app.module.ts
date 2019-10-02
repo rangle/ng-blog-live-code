@@ -15,7 +15,6 @@ import { StoreModule } from '@ngrx/store';
 import { appReducer } from './store/app.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './store/app.effects';
-import { metaReducers } from './store/logger';
 
 @NgModule({
   declarations: [

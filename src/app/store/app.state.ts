@@ -1,4 +1,5 @@
 export interface AppState {
-  title: string;
+  selectedArticle: any;
+  didError: boolean;
   articles: string[];
 }

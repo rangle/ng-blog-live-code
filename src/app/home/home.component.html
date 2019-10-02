@@ -1,15 +1,11 @@
-<pre
-  >{{ articles$ | async | json }}
-  </pre
->
-<!-- <div class="app-container" *ngIf="didError == false">
-  <app-article class="app-article" [article]="selectedArticle"></app-article>
+<div class="app-container" *ngIf="(didError$ | async) == false">
+  <app-article class="app-article" [article]="selectedArticle$ | async"></app-article>
   <app-blog-roll
     (selectedArticle)="displaySelectedArticle($event)"
-    [articles]="fetchService.articles | async"
+    [articles]="articles$ | async"
     class="app-blog-roll"
   ></app-blog-roll>
 </div>
-<div *ngIf="didError">
+<div *ngIf="(didError$ | async) == true">
   Uh oh, we could not connect to the server, please try again later.
-</div> -->
+</div>
