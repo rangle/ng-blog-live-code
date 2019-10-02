@@ -33,8 +33,9 @@ export class NewArticleComponent implements OnInit {
     const article = {
       title: this.articleFormGroup.controls.title.value,
       author: this.articleFormGroup.controls.author.value,
-      date: [2019, 10, 2],
+      date: new Date(2019, 10, 2),
       body: this.articleFormGroup.controls.body.value,
+      id: -1,
       isPublished: true,
     };
     this.fetchService.save(article)
