@@ -11,6 +11,7 @@ import { ArticleItemComponent } from './article-item/article-item.component';
 import { HomeComponent } from './home/home.component';
 import { NewArticleComponent } from './new-article/new-article.component';
 import { ControlErrorComponent } from './control-error/control-error.component';
+import { HelloComponent } from './hello/hello.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ControlErrorComponent } from './control-error/control-error.component';
     HomeComponent,
     NewArticleComponent,
     ControlErrorComponent,
+    HelloComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule],
   providers: [],
