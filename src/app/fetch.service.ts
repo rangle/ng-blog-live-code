@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { pipe } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 export interface DataArticle {
   author?: string;
@@ -28,5 +30,14 @@ export class FetchService {
 
   displaySelectedArticle(article: DataArticle) {
     this.selectedArticle = article;
+  }
+
+  save(article: DataArticle) {
+    return this.http.post('https://angular-connect.rangleu.io/blogs', article)
+      .pipe(tap((newData: DataArticle) => {
+        // side effects
+        this.articles.push(newData);
+        this.selectedArticle = newData;
+      }));
   }
 }

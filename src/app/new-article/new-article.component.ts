@@ -37,8 +37,9 @@ export class NewArticleComponent implements OnInit {
       body: this.articleFormGroup.controls.body.value,
       isPublished: true,
     };
-    this.fetchService.articles.push(article);
-    this.fetchService.selectedArticle = article;
-    this.router.navigateByUrl('');
+    this.fetchService.save(article)
+      .subscribe(() => {
+        this.router.navigateByUrl('');
+      });
   }
 }
