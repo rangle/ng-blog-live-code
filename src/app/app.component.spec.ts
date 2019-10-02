@@ -7,11 +7,14 @@ import { BlogRollComponent } from './blog-roll/blog-roll.component';
 import { ArticleItemComponent } from './article-item/article-item.component';
 import { HomeComponent } from './home/home.component';
 import { NewArticleComponent } from './new-article/new-article.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ControlErrorComponent } from './control-error/control-error.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, ReactiveFormsModule, HttpClientModule],
       declarations: [
         AppComponent,
         ArticleComponent,
@@ -19,6 +22,7 @@ describe('AppComponent', () => {
         ArticleItemComponent,
         HomeComponent,
         NewArticleComponent,
+        ControlErrorComponent,
       ],
     }).compileComponents();
   }));

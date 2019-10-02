@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NewArticleComponent } from './new-article.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ControlErrorComponent } from '../control-error/control-error.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 describe('NewArticleComponent', () => {
   let component: NewArticleComponent;
@@ -8,7 +12,8 @@ describe('NewArticleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [NewArticleComponent],
+      imports: [ReactiveFormsModule, HttpClientModule, RouterModule.forRoot([])],
+      declarations: [NewArticleComponent, ControlErrorComponent],
     }).compileComponents();
   }));
 
