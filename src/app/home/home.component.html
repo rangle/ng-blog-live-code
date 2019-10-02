@@ -1,8 +1,11 @@
-<div class="app-container">
-  <app-article class="app-article" [article]="selectedArticle"></app-article>
+<div class="app-container" *ngIf="fetchService.didError == false">
+  <app-article class="app-article" [article]="fetchService.selectedArticle"></app-article>
   <app-blog-roll
-    (selectedArticle)="displaySelectedArticle($event)"
-    [articles]="articles"
+    (selectedArticle)="fetchService.displaySelectedArticle($event)"
+    [articles]="fetchService.articles"
     class="app-blog-roll"
   ></app-blog-roll>
+</div>
+<div *ngIf="fetchService.didError">
+  Uh oh, we could not connect to the server, please try again later.
 </div>

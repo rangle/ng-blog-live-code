@@ -1,0 +1,4 @@
+<span *ngIf="formErrors">
+  <p class="error" *ngIf="formErrors.required">{{ fieldName }} is required.</p>
+  <p class="error" *ngIf="formErrors.minlength">Min Length should be 10 chars.</p>
+</span>
