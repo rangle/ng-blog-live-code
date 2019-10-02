@@ -1,4 +1,8 @@
-<div class="app-container" *ngIf="didError == false">  
+<pre
+  >{{ articles$ | async | json }}
+  </pre
+>
+<!-- <div class="app-container" *ngIf="didError == false">
   <app-article class="app-article" [article]="selectedArticle"></app-article>
   <app-blog-roll
     (selectedArticle)="displaySelectedArticle($event)"
@@ -8,4 +12,4 @@
 </div>
 <div *ngIf="didError">
   Uh oh, we could not connect to the server, please try again later.
-</div>
+</div> -->
