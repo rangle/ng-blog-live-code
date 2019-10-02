@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 export interface DataArticle {
   author?: string;
@@ -11,10 +10,23 @@ export interface DataArticle {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FetchService {
-  articles = this.http.get('https://angular-connect.rangleu.io/blogs');
+  articles: DataArticle[] = [];
+  selectedArticle: DataArticle;
+  didError = false;
+
   constructor(private http: HttpClient) {
+    this.http.get('https://angular-connect.rangleu.io/blogs').subscribe((data: DataArticle[]) => {
+      this.articles = data;
+      if (this.articles.length > 0) {
+        this.selectedArticle = this.articles[0];
+      }
+    });
+  }
+
+  displaySelectedArticle(article: DataArticle) {
+    this.selectedArticle = article;
   }
 }
