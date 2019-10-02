@@ -15,7 +15,6 @@ export class HomeComponent {
   selectedArticle$;
 
   constructor(private store: Store<AppState>) {
-    this.store.dispatch(new AppActions.GetArticlesAction());
     this.articles$ = this.store.select('app').pipe(map(s => s.articles));
     this.selectedArticle$ = this.store.select('app').pipe(map(s => s.selectedArticle));
     this.didError$ = this.store.select('app').pipe(map(s => s.didError));

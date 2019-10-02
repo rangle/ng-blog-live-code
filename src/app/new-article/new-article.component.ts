@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { FetchService } from './../fetch.service';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from '../store/app.state';
+import * as AppActions from '../store/app.actions';
 
 @Component({
   selector: 'app-new-article',
@@ -11,7 +14,12 @@ import { Router } from '@angular/router';
 export class NewArticleComponent implements OnInit {
   articleFormGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private fetchService: FetchService, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private fetchService: FetchService,
+    private router: Router,
+    private store: Store<AppState>,
+  ) {}
 
   ngOnInit() {
     // this.articleFormGroup = new FormGroup({
@@ -37,8 +45,9 @@ export class NewArticleComponent implements OnInit {
       body: this.articleFormGroup.controls.body.value,
       isPublished: true,
     };
-    this.fetchService.articles.push(article);
-    this.fetchService.selectedArticle = article;
+    // this.fetchService.articles.push(article);
+    // this.fetchService.selectedArticle = article;
+    this.store.dispatch(new AppActions.AddArticleAction(article));
     this.router.navigateByUrl('');
   }
 }
