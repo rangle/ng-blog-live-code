@@ -7,5 +7,5 @@ import { FetchService } from '../fetch.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  constructor(private fetchService: FetchService) {}
+  constructor(public fetchService: FetchService) {}
 }
